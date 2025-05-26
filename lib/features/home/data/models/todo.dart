@@ -28,11 +28,15 @@ class Todo {
       id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
-      isCompleted: map['completed'] == 1 ? true : false,
+      isCompleted:
+          map['completed'] == 1
+              ? true
+              : false, // assuming 1 is true and 0 is false
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Todo.fromJson(String source) => Todo.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Todo.fromJson(String source) =>
+      Todo.fromMap(json.decode(source) as Map<String, dynamic>);
 }
